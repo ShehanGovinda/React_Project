@@ -55,28 +55,6 @@ class CartManage extends Component{
         }
     };
 
-    loadAllCart = async () => {
-
-        let res = await cartManagerService.fetchCart();
-
-        if (res.status === 200) {
-            this.setState({
-                allCart : res.data.data,
-                alert: true,
-                message: res.data.message,
-                severity: 'success'
-            });
-            //this.clearFields();
-            await this.loadAllCart();
-        } else {
-            this.setState({
-                alert: true,
-                message: res.response.data.message,
-                severity: 'error'
-            });
-        }
-    };
-
     loadSingleCart = async () => {
         //let Id = this.state.id
         let res = await cartManagerService.fetchSingleCart(/*Id*/);
@@ -97,6 +75,28 @@ class CartManage extends Component{
             });
             //this.clearFields();
             //await this.loadData();
+        } else {
+            this.setState({
+                alert: true,
+                message: res.response.data.message,
+                severity: 'error'
+            });
+        }
+    };
+
+    loadAllCart = async () => {
+
+        let res = await cartManagerService.fetchCart();
+
+        if (res.status === 200) {
+            this.setState({
+                allCart : res.data.data,
+                alert: true,
+                message: res.data.message,
+                severity: 'success'
+            });
+            //this.clearFields();
+            await this.loadAllCart();
         } else {
             this.setState({
                 alert: true,
