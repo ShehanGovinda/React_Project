@@ -27,6 +27,29 @@ class ProductManage extends Component {
 
     }
 
+    loadAllProducts = async () => {
+
+        let res = await productManagerService.fetchProduct();
+
+        if (res.status === 200) {
+            this.setState({
+                allProduct : res.data.data,
+                alert: true,
+                message: res.data.message,
+                severity: 'success'
+            });
+            //this.clearFields();
+            //await this.loadData();
+        } else {
+            this.setState({
+                alert: true,
+                message: res.response.data.message,
+                severity: 'error'
+            });
+        }
+    };
+
+
     submitProduct = async () => {
 
         let product = this.state.formData();
@@ -49,27 +72,6 @@ class ProductManage extends Component {
         }
     };
 
-    loadAllProducts = async () => {
-
-        let res = await productManagerService.fetchProduct();
-
-        if (res.status === 200) {
-            this.setState({
-                allProduct : res.data.data,
-                alert: true,
-                message: res.data.message,
-                severity: 'success'
-            });
-            //this.clearFields();
-            //await this.loadData();
-        } else {
-            this.setState({
-                alert: true,
-                message: res.response.data.message,
-                severity: 'error'
-            });
-        }
-    };
 
     loadAllProductsByCategory = async () => {
 
