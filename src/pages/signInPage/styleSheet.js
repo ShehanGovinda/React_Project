@@ -6,6 +6,14 @@ export const styleSheet={
         overflow:'hidden'
     },
 
+    loginForm:{
+        width:'22vw',
+        height:'20vh',
+        marginTop:'16vh',
+        direction:'column',
+        alignItems:'center',
+        paddingLeft:'2.5vw',
+    },
 
     loginContainer:{
         width: '22vw',
@@ -15,16 +23,6 @@ export const styleSheet={
         backgroundColor:'#FCFCFC',
         opacity:'88%'
 
-    },
-
-
-    loginForm:{
-        width:'22vw',
-        height:'20vh',
-        marginTop:'16vh',
-        direction:'column',
-        alignItems:'center',
-        paddingLeft:'2.5vw',
     },
 
     btn_container:{
